@@ -262,6 +262,13 @@
       currentIndex = index;
       updateNav();
 
+      const footer = document.getElementById('site-footer');
+      if (index >= 1 && index <= 6) {
+        footer.classList.add('hidden');
+      } else {
+        footer.classList.remove('hidden');
+      }
+
       // Set up envelope interaction when letter scene is shown
       if (scenes[index] === 'scene-letter' && !confettiTriggered) {
         initEnvelope();

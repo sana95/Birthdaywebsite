@@ -1433,12 +1433,12 @@ body {
 
 
 .train-img {
-  width: 450px;
+  width: 550px;
   height: auto;
   position: absolute;
   top: 50%;
   left: 0;
-  margin-top: -112px; /* half of approximate height to vertically center */
+  margin-top: -137px;
   transform: translateX(calc(-100% - 10px)) scaleX(-1);
   visibility: hidden;
 }
@@ -1539,10 +1539,18 @@ body {
   }
 
   .postcard-postmark {
-    width: 46px;
-    height: 46px;
-    left: 22px;
+    width: 50px;
+    height: 50px;
+    left: 20px;
     top: 16px;
+  }
+
+  .postmark-day {
+    font-size: 0.7rem;
+  }
+
+  .postmark-date {
+    font-size: 0.45rem;
   }
 
   .departure-row-time {
@@ -1588,7 +1596,7 @@ body {
   }
 
   .train-img {
-    width: 240px;
+    width: 320px;
   }
 
   .lock-content {
@@ -1656,18 +1664,19 @@ body {
   }
 
   .postcard-postmark {
-    width: 40px;
-    height: 40px;
-    left: 16px;
-    top: 12px;
+    width: 44px;
+    height: 44px;
+    left: 14px;
+    top: 10px;
+  }
+
+  .postmark-day {
+    font-size: 0.6rem;
   }
 
   .postmark-date {
-    font-size: 0.5rem;
-  }
-
-  .postmark-year {
-    font-size: 0.45rem;
+    font-size: 0.4rem;
+    letter-spacing: 0;
   }
 
   .postcard-corner {
@@ -1738,7 +1747,7 @@ body {
   }
 
   .train-img {
-    width: 180px;
+    width: 250px;
   }
 
   .btn-journey {
