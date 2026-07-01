@@ -20,6 +20,16 @@
       lockScreen.classList.add('unlocked');
       showTicket();
     } else {
+      const sassyErrors = [
+        'Nice try.',
+        'Good thing we tested this.',
+        'We have industry-leading security.',
+        'Passphrase not recognized. Shocking.',
+        'That ain\'t it, chief.',
+        'Access denied. Try harder.',
+        'Bold guess. Wrong, but bold.',
+      ];
+      lockError.textContent = sassyErrors[Math.floor(Math.random() * sassyErrors.length)];
       lockError.hidden = false;
       passwordInput.classList.add('shake');
       passwordInput.addEventListener('animationend', () => {
@@ -619,6 +629,9 @@
       function openEnvelope() {
         envelope.removeEventListener('click', openEnvelope);
         envelope.removeEventListener('keydown', onEnvelopeKey);
+
+        // Hide footer when letter opens
+        document.getElementById('site-footer').classList.add('hidden');
 
         // Start opening animation
         envelopeWrapper.classList.add('opening');
