@@ -16,6 +16,14 @@
     const value = passwordInput.value.trim();
     if (!value) return;
 
+    if (value.toLowerCase().includes('faucets')) {
+      lockScreen.classList.add('unlocked');
+      mainContent.hidden = false;
+      mainContent.classList.add('visible');
+      initJourney(1);
+      return;
+    }
+
     if (validatePassword(value)) {
       lockScreen.classList.add('unlocked');
       showTicket();
@@ -101,7 +109,7 @@
   });
 
   // --- Journey State Machine ---
-  function initJourney() {
+  function initJourney(startAt) {
     const scenes = [
       'scene-hero',
       'scene-stop-1',
@@ -109,12 +117,11 @@
       'scene-stop-3',
       'scene-stop-4',
       'scene-stop-5',
-      'scene-stop-6',
       'scene-letter'
     ];
 
-    const stopIndices = [1, 2, 3, 4, 5, 6, 7];
-    const totalStops = 7;
+    const stopIndices = [1, 2, 3, 4, 5, 6];
+    const totalStops = 6;
 
     const trainContainer = document.getElementById('train-container');
     const trainImg = document.getElementById('train-img');
@@ -133,9 +140,11 @@
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     // --- Split-Flap Board Animation ---
-    startSplitFlap();
+    if (!startAt) {
+      startSplitFlap();
+    }
 
-    showScene(0, false);
+    showScene(startAt || 0, false);
     updateNav();
 
     // Doledo row click is set up in startSplitFlap() after animation settles
@@ -263,7 +272,7 @@
       updateNav();
 
       const footer = document.getElementById('site-footer');
-      if (index >= 1 && index <= 6) {
+      if (index >= 1 && index <= 5) {
         footer.classList.add('hidden');
       } else {
         footer.classList.remove('hidden');
@@ -284,12 +293,12 @@
       // Disable forward on last scene
       navForward.disabled = currentIndex >= scenes.length - 1;
 
-      // Update track progress (stops 1-7 map to indices 1-7)
+      // Update track progress (stops 1-6 map to indices 1-6)
       let trackProgress = 0;
-      if (currentIndex >= 1 && currentIndex <= 7) {
+      if (currentIndex >= 1 && currentIndex <= 6) {
         trackProgress = (currentIndex - 1) / (totalStops - 1);
-      } else if (currentIndex > 7) {
-        trackProgress = 1; // past all stops
+      } else if (currentIndex > 6) {
+        trackProgress = 1;
       }
 
       const percent = trackProgress * 100;
@@ -329,7 +338,7 @@
     function playTrainTransition(nextIndex, direction) {
       transitioning = true;
       const currentScene = document.getElementById(scenes[currentIndex]);
-      const isArrival = nextIndex === 7;
+      const isArrival = nextIndex === 6;
 
       // Fade out current scene
       if (currentScene) {
@@ -346,7 +355,7 @@
         // Fully reset train state
         trainContainer.classList.remove('active', 'arriving');
         trainImg.style.animation = 'none';
-        trainImg.style.transform = 'translateX(calc(-100% - 10px)) scaleX(-1)';
+        trainImg.style.transform = 'translateX(calc(-100% - 10px)) translateY(-50%)';
 
         // Force reflow to reset animation
         void trainImg.offsetHeight;
@@ -364,29 +373,15 @@
 
         // Hide container the instant the train image animation ends
         function onAnimEnd(e) {
-          // Only respond to the train-img's own animation, not bubbled events
           if (e.target !== trainImg) return;
           trainImg.removeEventListener('animationend', onAnimEnd);
 
-          if (isArrival) {
-            // Arrival: train stops in center, pause briefly then reveal card
-            setTimeout(() => {
-              trainContainer.classList.remove('active', 'arriving');
-              trainImg.style.visibility = 'hidden';
-              trainImg.style.transform = 'translateX(calc(-100% - 10px)) scaleX(-1)';
-              showScene(nextIndex, true);
-              transitioning = false;
-              trainImg.style.visibility = '';
-            }, 500);
-          } else {
-            // Normal crossing: instant hide and show next
-            trainContainer.classList.remove('active', 'arriving');
-            trainImg.style.visibility = 'hidden';
-            trainImg.style.transform = 'translateX(calc(-100% - 10px)) scaleX(-1)';
-            showScene(nextIndex, true);
-            transitioning = false;
-            trainImg.style.visibility = '';
-          }
+          trainContainer.classList.remove('active', 'arriving');
+          trainImg.style.visibility = 'hidden';
+          trainImg.style.transform = 'translateX(calc(-100% - 10px)) translateY(-50%)';
+          showScene(nextIndex, true);
+          transitioning = false;
+          trainImg.style.visibility = '';
         }
 
         trainImg.addEventListener('animationend', onAnimEnd);

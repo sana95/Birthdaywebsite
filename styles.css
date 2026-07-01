@@ -485,10 +485,10 @@ body {
 .nav-stop::before {
   content: '';
   position: absolute;
-  top: -12px;
-  left: -12px;
-  right: -12px;
-  bottom: -12px;
+  top: -18px;
+  left: -18px;
+  right: -18px;
+  bottom: -18px;
 }
 
 .nav-stop.visited {
@@ -705,7 +705,7 @@ body {
   right: 0;
   text-align: center;
   padding: 1.25rem 1.5rem;
-  z-index: 1001;
+  z-index: 40;
   transition: opacity 0.4s ease;
 }
 
@@ -781,17 +781,6 @@ body {
 }
 
 
-.scene-hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url('v2_wallpaper.png');
-  background-size: 1200px;
-  background-position: center;
-  opacity: 0.4;
-  pointer-events: none;
-  z-index: 0;
-}
 
 /* ===== Buttons ===== */
 .btn-journey {
@@ -891,10 +880,68 @@ body {
   padding: 2.5rem 3rem 2rem;
   border: none;
   border-radius: 4px;
-  background: var(--color-card);
+  background:
+    repeating-radial-gradient(
+      circle at 17% 32%, rgba(61,79,95,0.04) 0px, transparent 1px
+    ),
+    repeating-radial-gradient(
+      circle at 83% 67%, rgba(61,79,95,0.03) 0px, transparent 1px
+    ),
+    repeating-radial-gradient(
+      circle at 50% 50%, rgba(139,119,86,0.025) 0px, transparent 1px
+    ),
+    var(--color-card);
+  background-size: 3px 3px, 4px 4px, 5px 5px, auto;
   box-shadow:
     0 4px 24px rgba(61, 79, 95, 0.08),
-    0 1px 3px rgba(61, 79, 95, 0.04);
+    0 1px 3px rgba(61, 79, 95, 0.04),
+    inset 0 0 60px rgba(139, 119, 86, 0.06),
+    inset 0 0 20px rgba(139, 119, 86, 0.04);
+}
+
+.postcard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  border-radius: 4px 4px 0 0;
+  background: repeating-linear-gradient(
+    135deg,
+    #C45B5B 0px,
+    #C45B5B 6px,
+    #FEFCF8 6px,
+    #FEFCF8 9px,
+    #4A6FA5 9px,
+    #4A6FA5 15px,
+    #FEFCF8 15px,
+    #FEFCF8 18px
+  );
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.postcard::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  border-radius: 0 0 4px 4px;
+  background: repeating-linear-gradient(
+    135deg,
+    #C45B5B 0px,
+    #C45B5B 6px,
+    #FEFCF8 6px,
+    #FEFCF8 9px,
+    #4A6FA5 9px,
+    #4A6FA5 15px,
+    #FEFCF8 15px,
+    #FEFCF8 18px
+  );
+  opacity: 0.5;
 }
 
 .postcard-corner {
@@ -993,7 +1040,7 @@ body {
 
 .postmark-day {
   font-family: 'Space Mono', monospace;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 700;
   color: var(--color-ink);
   line-height: 1;
@@ -1003,10 +1050,10 @@ body {
   font-family: 'Space Mono', monospace;
   font-size: 0.55rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   color: var(--color-ink-secondary);
   line-height: 1;
-  margin-top: 3px;
+  margin-top: 2px;
 }
 
 .postcard-content {
@@ -1324,6 +1371,27 @@ body {
   transform: translateY(60px);
   transition: opacity 0.6s ease, transform 0.6s ease;
   pointer-events: none;
+  max-height: 75vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(196, 169, 106, 0.4) transparent;
+}
+
+.letter-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.letter-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.letter-container::-webkit-scrollbar-thumb {
+  background: rgba(196, 169, 106, 0.4);
+  border-radius: 3px;
+}
+
+.letter-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(196, 169, 106, 0.6);
 }
 
 .letter-container.revealed {
@@ -1349,8 +1417,38 @@ body {
   max-width: 600px;
   margin: 0 auto;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-  max-height: 75vh;
-  overflow-y: auto;
+  position: relative;
+}
+
+.letter::before,
+.letter::after {
+  content: '';
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  background: url('foxglove-corner.svg') no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  opacity: 0.7;
+  z-index: 2;
+}
+
+.letter::before {
+  top: 6px;
+  left: 6px;
+}
+
+.letter::after {
+  bottom: 6px;
+  right: 6px;
+  transform: rotate(180deg);
+}
+
+.letter-heading,
+.letter-body,
+.letter-signoff {
+  position: relative;
+  z-index: 1;
 }
 
 .letter-heading {
@@ -1366,7 +1464,7 @@ body {
 .letter-body {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.1rem;
 }
 
 .letter-paragraph {
@@ -1391,6 +1489,7 @@ body {
   color: var(--color-accent);
   text-align: right;
   margin-top: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 /* ===== Train Container ===== */
@@ -1438,45 +1537,48 @@ body {
   position: absolute;
   top: 50%;
   left: 0;
-  margin-top: -137px;
-  transform: translateX(calc(-100% - 10px)) scaleX(-1);
+  transform: translateX(calc(-100% - 10px)) translateY(-50%);
   visibility: hidden;
 }
 
 .train-container.active .train-img {
   visibility: visible;
-  animation: trainCross 3.5s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+  animation: trainCross 4.5s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
 }
 
 .train-container.arriving .train-img {
   visibility: visible;
-  animation: trainArrive 4s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+  animation: trainArrive 6.5s cubic-bezier(0.15, 0.0, 0.1, 1) forwards;
 }
 
 @keyframes trainCross {
   0% {
-    transform: translateX(calc(-100% - 10px)) scaleX(-1);
+    transform: translateX(calc(-100% - 10px)) translateY(-50%);
   }
   100% {
-    transform: translateX(calc(100vw + 10px)) scaleX(-1);
+    transform: translateX(calc(100vw + 10px)) translateY(-50%);
   }
 }
 
 @keyframes trainArrive {
   0% {
-    transform: translateX(calc(-100% - 10px)) scaleX(-1);
-  }
-  65% {
-    transform: translateX(calc(50vw - 50%)) scaleX(-1);
+    transform: translateX(calc(-100% - 10px)) translateY(-50%);
   }
   100% {
-    transform: translateX(calc(50vw - 50%)) scaleX(-1);
+    transform: translateX(calc(100vw + 10px)) translateY(-50%);
   }
 }
 
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
+  .main-content::before,
+  .ticket-overlay::before,
+  .scene-hero::before,
+  .train-container::before {
+    background-size: 600px;
+  }
+
   .scene {
     padding: 4rem 1rem 1.5rem;
   }
@@ -1583,6 +1685,13 @@ body {
     padding: 2rem 1.75rem;
   }
 
+  .letter::before,
+  .letter::after {
+    width: 60px;
+    height: 60px;
+    opacity: 0.55;
+  }
+
   .letter-heading {
     font-size: 2rem;
   }
@@ -1596,7 +1705,7 @@ body {
   }
 
   .train-img {
-    width: 320px;
+    width: 350px;
   }
 
   .lock-content {
@@ -1747,7 +1856,7 @@ body {
   }
 
   .train-img {
-    width: 250px;
+    width: 280px;
   }
 
   .btn-journey {

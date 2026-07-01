@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Foxglove stalk curving from bottom-left corner upward and to the right -->
+
+  <!-- Main curved stem -->
+  <path d="M10 200 C15 170, 20 140, 30 110 C40 80, 55 55, 80 35 C100 20, 130 12, 160 10"
+        stroke="#4A7A3F" stroke-width="2.5" stroke-linecap="round" opacity="0.75" fill="none"/>
+
+  <!-- Secondary thinner stem branch -->
+  <path d="M25 150 C30 130, 35 115, 45 100"
+        stroke="#5A8A4A" stroke-width="1.5" stroke-linecap="round" opacity="0.5" fill="none"/>
+
+  <!-- Leaves along stem -->
+  <path d="M15 185 C8 175, 3 165, 5 155 C8 158, 14 168, 20 178Z" fill="#5A8A4A" opacity="0.45"/>
+  <path d="M22 165 C30 158, 38 155, 42 158 C38 162, 30 164, 22 165Z" fill="#4A7A3F" opacity="0.4"/>
+  <path d="M35 125 C28 118, 24 110, 26 103 C30 107, 34 115, 38 122Z" fill="#5A8A4A" opacity="0.35"/>
+
+  <!-- FOXGLOVE BELLS - distinctive tubular shape with flared opening and spots -->
+
+  <!-- Bell 1 - large, bottom of stalk, hanging down-left -->
+  <path d="M18 195 C12 192, 5 186, 3 178 C2 172, 4 167, 8 165 C12 163, 17 166, 20 172 C22 176, 22 182, 21 188 C20 192, 19 194, 18 195Z"
+        fill="#9B4D7A" opacity="0.6"/>
+  <!-- Inner highlight -->
+  <path d="M15 190 C11 188, 7 183, 6 178 C5 174, 7 170, 10 169 C13 168, 16 170, 17 174 C18 178, 18 183, 17 187Z"
+        fill="#E8C8D8" opacity="0.5"/>
+  <!-- Characteristic foxglove spots -->
+  <circle cx="10" cy="176" r="1.8" fill="#4A1A30" opacity="0.4"/>
+  <circle cx="13" cy="179" r="1.4" fill="#4A1A30" opacity="0.35"/>
+  <circle cx="10" cy="181" r="1.2" fill="#4A1A30" opacity="0.3"/>
+  <circle cx="14" cy="174" r="1" fill="#4A1A30" opacity="0.3"/>
+
+  <!-- Bell 2 - hanging right side -->
+  <path d="M30 160 C35 157, 42 153, 46 147 C48 142, 47 137, 43 135 C39 133, 34 136, 32 141 C30 145, 29 151, 29 156 C29 158, 30 159, 30 160Z"
+        fill="#A8558A" opacity="0.55"/>
+  <path d="M32 155 C35 153, 40 149, 42 145 C44 141, 43 138, 40 137 C37 136, 34 138, 33 142 C32 145, 31 150, 32 153Z"
+        fill="#E8C8D8" opacity="0.45"/>
+  <circle cx="39" cy="141" r="1.5" fill="#4A1A30" opacity="0.35"/>
+  <circle cx="37" cy="144" r="1.2" fill="#4A1A30" opacity="0.3"/>
+  <circle cx="40" cy="145" r="1" fill="#4A1A30" opacity="0.25"/>
+
+  <!-- Bell 3 - hanging down-left, mid stalk -->
+  <path d="M38 120 C32 118, 24 114, 20 108 C18 103, 20 99, 24 97 C28 95, 33 98, 35 103 C37 107, 38 113, 38 118Z"
+        fill="#9B4D7A" opacity="0.55"/>
+  <path d="M35 116 C31 114, 26 111, 24 107 C22 103, 24 100, 27 99 C30 98, 33 100, 34 104 C35 107, 35 112, 35 115Z"
+        fill="#E8C8D8" opacity="0.45"/>
+  <circle cx="26" cy="103" r="1.4" fill="#4A1A30" opacity="0.35"/>
+  <circle cx="29" cy="105" r="1.1" fill="#4A1A30" opacity="0.3"/>
+
+  <!-- Bell 4 - right side, along curve -->
+  <path d="M55 95 C60 92, 66 87, 70 81 C72 76, 70 72, 66 71 C62 70, 58 73, 57 77 C55 81, 54 87, 55 93Z"
+        fill="#A8558A" opacity="0.5"/>
+  <path d="M57 91 C60 89, 64 85, 66 81 C67 77, 66 74, 63 73 C60 72, 58 75, 57 78 C56 81, 56 86, 57 89Z"
+        fill="#E8C8D8" opacity="0.4"/>
+  <circle cx="63" cy="76" r="1.3" fill="#4A1A30" opacity="0.3"/>
+  <circle cx="61" cy="79" r="1" fill="#4A1A30" opacity="0.25"/>
+
+  <!-- Bell 5 - continuing along curve -->
+  <path d="M72 72 C66 70, 60 65, 58 59 C56 54, 58 50, 62 49 C66 48, 70 51, 71 55 C73 59, 73 65, 72 70Z"
+        fill="#9B4D7A" opacity="0.48"/>
+  <path d="M70 68 C66 66, 62 63, 61 59 C60 55, 61 52, 64 51 C67 50, 69 52, 70 56 C71 59, 71 64, 70 67Z"
+        fill="#E8C8D8" opacity="0.4"/>
+  <circle cx="63" cy="54" r="1.2" fill="#4A1A30" opacity="0.3"/>
+
+  <!-- Bell 6 - upper curve, smaller -->
+  <path d="M95 48 C100 45, 105 40, 107 34 C108 29, 106 26, 102 25 C98 24, 95 27, 94 31 C93 35, 94 42, 95 47Z"
+        fill="#A8558A" opacity="0.45"/>
+  <path d="M96 44 C99 42, 103 38, 104 34 C105 30, 103 28, 101 27 C98 26, 96 29, 95 32 C94 35, 95 40, 96 43Z"
+        fill="#E8C8D8" opacity="0.38"/>
+  <circle cx="101" cy="30" r="1.1" fill="#4A1A30" opacity="0.25"/>
+
+  <!-- Bell 7 - near top, smaller still -->
+  <path d="M115 38 C110 36, 106 32, 105 27 C104 23, 106 20, 109 19 C112 18, 115 21, 116 24 C117 27, 116 33, 115 37Z"
+        fill="#9B4D7A" opacity="0.42"/>
+  <path d="M114 34 C111 33, 108 30, 107 27 C106 24, 108 22, 110 21 C112 20, 114 22, 114 25 C115 27, 115 31, 114 33Z"
+        fill="#E8C8D8" opacity="0.35"/>
+
+  <!-- Top buds - closed, teardrop shaped -->
+  <path d="M135 25 C132 23, 130 19, 131 15 C132 12, 134 11, 136 12 C138 13, 138 17, 137 21 C136 23, 135 24, 135 25Z"
+        fill="#7A3D62" opacity="0.4"/>
+  <path d="M148 18 C146 16, 145 13, 146 10 C147 8, 148 7, 150 8 C151 9, 151 12, 150 15 C149 17, 149 17, 148 18Z"
+        fill="#7A3D62" opacity="0.35"/>
+  <path d="M158 14 C157 12, 156 10, 157 8 C157 7, 158 6, 159 7 C160 8, 160 10, 159 12Z"
+        fill="#7A3D62" opacity="0.3"/>
+</svg>
